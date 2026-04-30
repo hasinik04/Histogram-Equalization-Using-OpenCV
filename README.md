@@ -70,14 +70,56 @@ Display original color image, histogram, enhanced image, and enhanced histogram 
 ## Program
 
 ### Developed By:
-**Name:** ____________________________  
-
-### Register No:
-____________________________  
+**Name: KATHI HASINI**  
+### Register No: 212224240074
 
 ---
-
+#### Input Grayscale Image and Color Image
+```
+import cv2
+from matplotlib import pyplot as plt
+# Load the color image
+image = cv2.imread('dipt.jpeg')
+# Convert the image to grayscale
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+plt.imshow(gray_image, cmap='gray')
+plt.title('Original Grayscale Image')
+plt.axis('off')
+```
 ##  Output
+<img width="870" height="501" alt="image" src="https://github.com/user-attachments/assets/9747c8d1-d3b3-4d4d-995f-84e140ee1ea8" />
+
+#### Histogram of Grayscale Image
+```
+hist_original = cv2.calcHist([gray_image], [0], None, [256], [0, 256])
+plt.plot(hist_original, color='black')
+plt.title('Original Histogram')
+plt.xlim([0, 256])
+```
+## Output 
+<img width="932" height="583" alt="image" src="https://github.com/user-attachments/assets/24b22fc7-963d-4161-bc56-fb2be1329026" />
+
+#### Histogram Equalization of Grayscale Image
+```
+# Apply histogram equalization
+equalized_image = cv2.equalizeHist(gray_image)
+plt.imshow(equalized_image, cmap='grey')
+plt.title('Equalized Image')
+plt.axis('off')
+```
+### Output:
+<img width="842" height="513" alt="image" src="https://github.com/user-attachments/assets/96775f6f-3a66-40c2-bc80-a106027f1e92" />
+
+### Equalized Histogram 
+```
+hist_original = cv2.calcHist([equalized_image], [0], None, [256], [0, 256])
+plt.plot(hist_original, color='black')
+plt.title('Equalized Histogram')
+plt.xlim([0, 256])
+```
+
+## Output:
+<img width="880" height="577" alt="image" src="https://github.com/user-attachments/assets/e7f8730a-6d59-4df1-9356-df60e7bc962d" />
 
 ### Grayscale Histogram Equalization
 
